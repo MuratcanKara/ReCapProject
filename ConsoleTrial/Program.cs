@@ -12,7 +12,9 @@ namespace ConsoleTrial
             foreach (var c in carManager1.GetAll())
             {
                 Console.WriteLine(c.Description);
-            }                                  
+            }
+            
+            
         }
     }
 }
