@@ -1,5 +1,6 @@
 ﻿using DataAccess.Abstract;
-using Entities.Abstract;
+using Core.DataAccess.EntityFramework;
+using Core.Entities;
 using Entities.Concrete;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -8,57 +9,41 @@ using System.Linq;
 using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
+using Entities.DTOs;
 
 namespace DataAccess.Concrete.EntityFramework
 {
-    public class EfCarDal : ICarDal
+    public class EfCarDal : EfEntityRepositoryBase<Car, SouthwindContext>, ICarDal
     {
-        public void Add(Car entity)
+        public void DeleteById(int Id)
         {
             using (SouthwindContext context = new SouthwindContext())
             {
-                var entityToAdd = context.Entry(entity);
-                entityToAdd.State = EntityState.Added;
-                context.SaveChanges();
+                var carToDelete = context.Set<Car>().Find(Id);
+                if (carToDelete != null)
+                {
+                    context.Set<Car>().Remove(carToDelete);
+                    context.SaveChanges();
+                }
+                else
+                {
+                    throw new Exception("Car doesn't exist!");
+                }
+
             }
+
         }
 
-        public void Delete(Car entity)
+        public List<CarDetailDto> GetCarDetails(Car car)
         {
             using (SouthwindContext context = new SouthwindContext())
             {
-                var entityToDelete = context.Entry(entity);
-                entityToDelete.State = EntityState.Deleted;
-                context.SaveChanges();
+                var result = from c in context.Cars join b in context.Brands on c.BrandId equals b.Id join co in context.Colors on c.ColorId equals co.Id
+                             select new CarDetailDto {CarName = c.Name, BrandName = b.Name, ColorName = co.Name, DailyPrice = c.DailyPrice };
+                return result.ToList();
             }
         }
 
-        public Car Get(Expression<Func<Car, bool>> filter)
-        {
-            using (SouthwindContext context = new SouthwindContext())
-            {
-                return context.Set<Car>().SingleOrDefault(filter);
-                
-            }
-        }
-
-        public List<Car> GetAll(Expression<Func<Car, bool>> filter = null)
-        {
-            using (SouthwindContext context = new SouthwindContext())
-            {
-                return filter == null ? context.Set<Car>().ToList() : context.Set<Car>().Where(filter).ToList();
-
-            }
-        }
-
-        public void Update(Car entity)
-        {
-            using (SouthwindContext context = new SouthwindContext())
-            {
-                var entityToUpdate = context.Entry(entity);
-                entityToUpdate.State = EntityState.Modified;
-                context.SaveChanges();
-            }
-        }
+        
     }
 }
