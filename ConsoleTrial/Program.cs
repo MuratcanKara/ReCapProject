@@ -1,7 +1,6 @@
 ﻿using Business.Concrete;
 using Core.Utilities.Results;
 using DataAccess.Concrete.EntityFramework;
-using DataAccess.Concrete.InMemory;
 using Entities.Concrete;
 
 namespace ConsoleTrial
@@ -10,8 +9,8 @@ namespace ConsoleTrial
     {
         static void Main(string[] args)
         {
-            CarTest1();
-            //CustomerTest1();
+            //CarTest1();
+            CustomerTest1();
             //UserTest1();
 
         }
@@ -21,7 +20,7 @@ namespace ConsoleTrial
             UserManager userManager1 = new UserManager(new EfUserDal());
             User user1 = new User();
 
-            user1.UserId = 1;
+            //user1.UserId = 1;
             user1.FirstName = "Test";
             user1.LastName = "Test";
             user1.Email = "test@gmail.com";
@@ -51,7 +50,7 @@ namespace ConsoleTrial
             car1.Name = "ARABA";
             car1.DailyPrice = 55;
             car1.Description = "ARABA";
-            //carManager1.Add(car1);
+            carManager1.Add(car1);
 
             //Car car2 = new Car();
 
@@ -60,7 +59,7 @@ namespace ConsoleTrial
             //car2.Description = "Old-school";
 
 
-            carManager1.DeleteById(1);
+            //carManager1.DeleteById(1);
             //carManager1.Update(car1);
 
 
