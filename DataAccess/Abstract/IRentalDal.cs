@@ -10,5 +10,6 @@ namespace DataAccess.Abstract
 {
     public interface IRentalDal: IEntityRepository<Rental>
     {
+        bool IsRentable(Rental rental);
     }
 }

@@ -21,8 +21,16 @@ namespace Business.Concrete
 
         public IResult Add(Rental rental)
         {
-            _rentalDal.Add(rental);
-            return new SuccessResult(Messages.SucceededMessage);
+            if (_rentalDal.IsRentable(rental))
+            {
+                _rentalDal.Add(rental);
+                return new SuccessResult(Messages.SucceededMessage);
+            }
+            else
+            {
+                return new ErrorResult(Messages.FailedMessage);
+            }
+
         }
 
         public IResult Delete(Rental rental)
