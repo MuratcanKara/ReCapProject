@@ -84,4 +84,46 @@
     <Property Name="ParentElementType" Value="SqlTable" />
     <Property Name="NewName" Value="CustomerId" />
   </Operation>
+  <Operation Name="Rename Refactor" Key="0010da24-9031-4f83-87cc-6daa387ef5cb" ChangeDateTime="06/07/2023 14:41:39">
+    <Property Name="ElementName" Value="[dbo].[Brands].[Id]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[Brands]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="BrandId" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="7eec6098-4e29-4040-bbe0-de5ded8f4804" ChangeDateTime="06/07/2023 14:41:50">
+    <Property Name="ElementName" Value="[dbo].[Colors].[Id]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[Colors]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="ColorId" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="fb4ff24a-f892-4495-9caf-4921b30e7787" ChangeDateTime="06/07/2023 14:47:14">
+    <Property Name="ElementName" Value="[dbo].[FK_Brands_ToTable]" />
+    <Property Name="ElementType" Value="SqlForeignKeyConstraint" />
+    <Property Name="ParentElementName" Value="[dbo].[Colors]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="[FK_Brands]" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="104e6cfa-8898-4d83-8e64-894a70b04967" ChangeDateTime="06/07/2023 14:47:35">
+    <Property Name="ElementName" Value="[dbo].[FK_Brands]" />
+    <Property Name="ElementType" Value="SqlForeignKeyConstraint" />
+    <Property Name="ParentElementName" Value="[dbo].[Colors]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="[FK_Colors_Brands]" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="8abf5bac-41d7-445a-b585-98235d721ad9" ChangeDateTime="06/07/2023 14:47:46">
+    <Property Name="ElementName" Value="[dbo].[FK_Brands]" />
+    <Property Name="ElementType" Value="SqlForeignKeyConstraint" />
+    <Property Name="ParentElementName" Value="[dbo].[Cars]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="[FK_Cars_Brands]" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="6bdb859c-c0fa-4246-90eb-9f1444427d30" ChangeDateTime="06/07/2023 14:47:52">
+    <Property Name="ElementName" Value="[dbo].[FK_Colors]" />
+    <Property Name="ElementType" Value="SqlForeignKeyConstraint" />
+    <Property Name="ParentElementName" Value="[dbo].[Cars]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="[FK_Cars_Colors]" />
+  </Operation>
 </Operations>

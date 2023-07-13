@@ -3,6 +3,7 @@ using Business.Constants;
 using Core.Utilities.Results;
 using DataAccess.Abstract;
 using Entities.Concrete;
+using Entities.DTOs;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -37,9 +38,14 @@ namespace Business.Concrete
             return new SuccessDataResult<List<Brand>>(_brandDal.GetAll());
         }
 
+        public IDataResult<List<BrandDetailDto>> GetBrandDetails(Brand brand)
+        {
+            return new SuccessDataResult<List<BrandDetailDto>>(_brandDal.GetBrandDetails(brand), Messages.SucceededMessage);
+        }
+
         public IDataResult<Brand> GetById(int Id)
         {
-            return new ErrorDataResult<Brand>(_brandDal.Get(b=>b.Id == Id), Messages.FailedMessage);
+            return new ErrorDataResult<Brand>(_brandDal.Get(b=>b.BrandId == Id), Messages.FailedMessage);
         }
 
         public IResult Update(Brand brand)
@@ -47,5 +53,7 @@ namespace Business.Concrete
             _brandDal.Update(brand);
             return new SuccessResult(Messages.SucceededMessage);
         }
+
+        
     }
 }

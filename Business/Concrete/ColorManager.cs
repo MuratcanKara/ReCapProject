@@ -39,7 +39,7 @@ namespace Business.Concrete
 
         public IDataResult<Color> GetById(int Id)
         {
-            return new ErrorDataResult<Color>(_colorDal.Get(c=>c.Id==Id), Messages.FailedMessage);
+            return new ErrorDataResult<Color>(_colorDal.Get(c=>c.ColorId==Id), Messages.FailedMessage);
         }
 
         public IResult Update(Color color)
