@@ -10,5 +10,14 @@ namespace Business.ValidationRules.FluentValidation
 {
     public class UserValidator: AbstractValidator<User>
     {
+        public UserValidator()
+        {
+            RuleFor(u => u.UserId).NotEmpty();
+            RuleFor(u => u.FirstName).MaximumLength(10);
+            RuleFor(u => u.LastName).MaximumLength(10);
+            RuleFor(u => u.Email).MaximumLength(50);
+            RuleFor(u => u.Password).MaximumLength(60);
+
+        }
     }
 }
