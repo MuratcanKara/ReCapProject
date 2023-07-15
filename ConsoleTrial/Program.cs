@@ -9,8 +9,8 @@ namespace ConsoleTrial
     {
         static void Main(string[] args)
         {
-            //CarTest1();
-            CustomerTest1();
+            CarTest1();
+            //CustomerTest1();
             //UserTest1();
 
         }
@@ -47,9 +47,9 @@ namespace ConsoleTrial
                                             
             
             //car1.CarId = 1; // It can be deleted or updated as you specify exact id.
-            car1.Name = "ARABA";
-            car1.DailyPrice = 55;
-            car1.Description = "ARABA";
+            car1.Name = "CAR";
+            car1.DailyPrice = 22;
+            car1.Description = "CAR";
             carManager1.Add(car1);
 
             
