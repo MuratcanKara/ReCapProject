@@ -10,5 +10,6 @@ namespace Business.Constants
     {
         public static string SucceededMessage = "Progress was completed properly!";
         public static string FailedMessage = "Progress was NOT completed properly!";
+        public static string CheckIfImageLimitRanOutOf = "You cannot add anymore new images. Limit has been reached!";
     }
 }
