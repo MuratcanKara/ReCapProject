@@ -20,13 +20,12 @@ namespace Business.Concrete
     public class CarImageManager : ICarImageService
     {
         ICarImageDal _carImageDal;
-        ICarService _carService;
         IFileService _fileService;
-        public CarImageManager(ICarImageDal carImageDal, IFileService fileService, ICarService carService)
+        public CarImageManager(ICarImageDal carImageDal, IFileService fileService)
         {
             _carImageDal = carImageDal;
             _fileService = fileService;
-            _carService = carService;
+
         }
 
         public IResult Add(IFormFile file, CarImage carImage)
