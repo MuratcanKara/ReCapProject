@@ -81,7 +81,7 @@ namespace Business.Concrete
         private IResult CheckIfImageLimitRanOutOf(int carId)
         {
             var result = _carImageDal.GetAll(c => c.CarId == carId).Count();
-            if (result > 5)
+            if (result >= 5)
             {
                 return new ErrorResult(Messages.CheckIfImageLimitRanOutOf);
             }
@@ -100,7 +100,7 @@ namespace Business.Concrete
             else
             {
                 List<CarImage> carImage = new List<CarImage>();
-                carImage.Add(new CarImage { CarId = carId, Date = DateTime.Now, ImagePath = "DefaultImage.jpg" });
+                carImage.Add(new CarImage { CarId = carId, Date = DateTime.Now, ImagePath = "DefaultImage.png" });
                 return new SuccessDataResult<List<CarImage>>(carImage);
             }
         }
