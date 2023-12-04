@@ -126,4 +126,18 @@
     <Property Name="ParentElementType" Value="SqlTable" />
     <Property Name="NewName" Value="[FK_Cars_Colors]" />
   </Operation>
+  <Operation Name="Rename Refactor" Key="88cc0011-0564-43d3-ab9e-28144664ae71" ChangeDateTime="12/04/2023 19:12:21">
+    <Property Name="ElementName" Value="[dbo].[Users].[UserId]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[Users]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="Id" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="9cd162e6-2489-4828-a26f-34389209a9f4" ChangeDateTime="12/04/2023 19:13:27">
+    <Property Name="ElementName" Value="[dbo].[Users].[Password]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[Users]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="PasswordHash" />
+  </Operation>
 </Operations>

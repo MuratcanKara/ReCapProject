@@ -1,0 +1,5 @@
+﻿CREATE TABLE [dbo].[OperationClaims]
+(
+	[Id] INT NOT NULL PRIMARY KEY IDENTITY, 
+    [Name] NVARCHAR(10) NOT NULL
+)

@@ -13,7 +13,7 @@
     [Fax]          NVARCHAR (24) NULL,
     
     CONSTRAINT [PK_Customers] PRIMARY KEY CLUSTERED ([CustomerId] ASC), 
-    CONSTRAINT [FK_CustomerUser] FOREIGN KEY ([UserId]) REFERENCES [Users]([UserId])
+    CONSTRAINT [FK_CustomerUser] FOREIGN KEY ([UserId]) REFERENCES [Users]([Id])
 );
 
 
