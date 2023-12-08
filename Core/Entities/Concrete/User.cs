@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace Core.Entities.Concrete
 {
+    //Entity.Concrete altında bu nesneyi tanımlasaydık IEntity'i Core katmanından zaten referans aldığı için User'ın usingini bir daha
+    //Core katmanı içinde kullanamazdık. Bu yüzden de User'ı Core içinde tanımlamak gerekir. Yani katmanlardan biri diğerini referans 
+    //ettiğinde diğeri de birini referans edemez.
     public class User: IEntity
     {
         public int Id { get; set; }

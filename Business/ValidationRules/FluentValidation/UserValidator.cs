@@ -1,4 +1,5 @@
-﻿using Entities.Concrete;
+﻿using Core.Entities.Concrete;
+using Entities.Concrete;
 using FluentValidation;
 using System;
 using System.Collections.Generic;
@@ -12,11 +13,11 @@ namespace Business.ValidationRules.FluentValidation
     {
         public UserValidator()
         {
-            RuleFor(u => u.UserId).NotEmpty();
+            RuleFor(u => u.Id).NotEmpty();
             RuleFor(u => u.FirstName).MaximumLength(10);
             RuleFor(u => u.LastName).MaximumLength(10);
             RuleFor(u => u.Email).MaximumLength(50);
-            RuleFor(u => u.Password).MaximumLength(60);
+            //RuleFor(u => u.Password).MaximumLength(60);
 
         }
     }
