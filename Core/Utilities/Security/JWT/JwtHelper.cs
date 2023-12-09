@@ -29,7 +29,14 @@ namespace Core.Utilities.Security.JWT
         {
             var securityKey = SecurityKeyHelper.CreateSecurityKey(_tokenOptions.SecurityKey);
             var signingCredentials = SigningCredentialsHelper.CreateSigningCredentials(securityKey);
-
+            var jwt = CreateJwtSecurityToken(_tokenOptions, user, signingCredentials, operationClaims);
+            var jwtSecurityTokenHandler = new JwtSecurityTokenHandler(); // üretilen jwt'nin bilgilerini bir handler ile yazmamız gerekir.
+            var token = jwtSecurityTokenHandler.WriteToken(jwt); // WriteToken ile jwt'yi stringe çevirdik.
+            return new AccessToken
+            {
+                Token = token,
+                Expiration = _accessTokenExpiration
+            };
         }
         
         public JwtSecurityToken CreateJwtSecurityToken(TokenOptions tokenOptions, User user,
