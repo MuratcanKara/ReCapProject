@@ -35,7 +35,7 @@ namespace Business.Concrete
         {
             // bu business işlemleri BusinessRules ile yazılmalı. Code Refactoring yap.
             var userToCheck = _userService.GetByEmail(userForLoginDto.Email);
-            if (userToCheck == null)
+            if (userToCheck.Data == null)
             {
                 return new ErrorDataResult<User>(Messages.UserNotFound);
             }
